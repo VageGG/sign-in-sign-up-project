@@ -11,15 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-    private final UserRepo repo;
+    private final UserRepo userRepo;
 
-    public MyUserDetailsService(UserRepo repo) {
-        this.repo = repo;
+    public MyUserDetailsService(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = repo.findByName(name);
+        User user = userRepo.findByName(name);
 
         if (user == null) {
             throw new UsernameNotFoundException("bad credentials");

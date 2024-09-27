@@ -18,7 +18,7 @@ import java.util.function.Function;
 
 @Service
 public class JWTService {
-    private String key = "";
+    private String key;
 
     public JWTService() throws NoSuchAlgorithmException {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacSHA256");
